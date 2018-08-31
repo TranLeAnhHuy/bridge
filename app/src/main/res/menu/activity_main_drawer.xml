@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+//sub trên navigration
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_GioiThieuChung"
+            android:title="Giới thiệu chung"
+            android:icon="@drawable/ic_menu_slideshow"/>
+        <item
+            android:id="@+id/nav_HuongDanSuDung"
+            android:title="Hướng dẫn sử dụng"
+            android:icon="@drawable/ic_menu_manage"/>
+    </group>
+
+    <item android:title="Bài toán thiết kế"
+          android:icon="@mipmap/images">
+        <menu>
+            <item
+                android:id="@+id/nav_DuLieuDauVaoTK"
+                android:title="Dữ liệu đầu vào" />
+            <item
+                android:id="@+id/nav_TinhToanSoBo"
+                android:title="Tính toán sơ bộ" />
+            <item
+                android:id="@+id/nav_NoiLuc"
+                android:title="Nội lực" />
+            <item
+                android:id="@+id/nav_KiemToan"
+                android:title="Kiểm toán" />
+            <item
+                android:id="@+id/nav_UngSuatDoVong"
+                android:title="Ứng suất - Độ Võng"/>
+        </menu>
+    </item>
+
+    <item android:title="Bài toán kiểm định"
+          android:icon="@mipmap/images2">
+        <menu>
+            <item
+                android:id="@+id/nav_DuLieuDauVaoKD"
+                android:title="Dữ liệu đầu vào" />
+
+            <item
+                android:id="@+id/nav_KetQuaPhanTich"
+                android:title="Kết quả phân tích" />
+        </menu>
+    </item>
+</menu>
