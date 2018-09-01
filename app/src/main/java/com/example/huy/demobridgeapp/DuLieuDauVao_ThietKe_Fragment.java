@@ -16,7 +16,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.dulieudauvao_thietke_fragment,container,true);
+        return inflater.inflate(R.layout.dulieudauvao_thietke_fragment,container,false);
     }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
