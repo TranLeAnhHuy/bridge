@@ -1,27 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        tools:ignore="MissingConstraints">
+        android:orientation="vertical"
+        android:padding="15dp"
+
+       >
 
         <TextView
             android:id="@+id/tvgioithieu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_marginTop="10dp"
-            android:text="steel bridge app"
+            android:text="cầu dầm thép"
             android:textAllCaps="true"
             android:textColor="#fb04069c"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <TextView
@@ -30,13 +26,11 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="40dp"
             android:text="Đây là ứng dụng cung cấp cho người dùng. Có khả năng tính toán sơ bộ kỹ thuật của cầu và đánh giá nhanh kết quả kiểm tra sức khỏe cầu tại hiện trường. \n Đề tài NCKH do TS Nguyễn Duy Thảo và sinh viên Trần Lê Ánh Huy, Hoàng Minh Quảng, Phan Văn Rôn thuộc khoa Xây dựng Cầu đường - Trường Đại học Bách Khoa - Đại học Đà Nẵng thực hiện. \n Do còn hạn chế về kiến thức cũng như khả năng lập trình nên không tránh những sai sót. \n Mọi góp ý xin gủi về \n email: tranhuy27396@gmail.com. \n Xin chân thành cảm ơn sự quan tâm của mọi người.!"
             android:textSize="16dp"
             android:textStyle="italic"
            />
-    </RelativeLayout>
+    </LinearLayout>
 
 
 
-</android.support.constraint.ConstraintLayout>
