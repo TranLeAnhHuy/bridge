@@ -33,10 +33,12 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/edtTenDuAn"
                 android:textAllCaps="true"
                 android:minWidth="250dp"
-                android:paddingLeft="150dp"
-                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:hint="Nhập tên dự án"
+
                 android:textColor="#fb04069c"
                 android:textSize="20dp" />
         </LinearLayout>
@@ -61,11 +63,12 @@
             <Spinner
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="250dp"
-                android:paddingLeft="150dp"
+                android:minWidth="1000dp"
+                android:paddingLeft="10dp"
                 android:textColor="#fb04069c"
                 android:paddingRight="10dp"
                 android:id="@+id/spinner"
+
                 >
             </Spinner>
         </LinearLayout>
@@ -110,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="48dp"
                 android:minWidth="60dp"
-                android:paddingLeft="100dp"
+                android:paddingLeft="10dp"
                 android:textAllCaps="true"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
@@ -148,7 +151,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="80dp"
                 android:minWidth="60dp"
-                android:paddingLeft="150dp"
+                android:paddingLeft="10dp"
                 android:textAllCaps="true"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
@@ -1797,6 +1800,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -1823,7 +1827,29 @@
                 android:layout_marginLeft="10dp"
                 android:text="/nhịp"
                 android:textColor="#6c7070"
-                android:textSize="13dp" />
+                android:textSize="13dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:textAllCaps="true"
+                android:text="Tính toán"
+                android:background="#34f134"
+                android:onClick="tinhToan"
+                android:id="@+id/btnTinhToan"
+
+                />
+
+
         </LinearLayout>
     </LinearLayout>
     </ScrollView>
