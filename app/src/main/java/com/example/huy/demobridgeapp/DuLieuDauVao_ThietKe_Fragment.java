@@ -52,129 +52,116 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         arrayDanhSach.add("Dầm thép không liên hợp");
         ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,  arrayDanhSach);
         spinnerDanhSach.setAdapter(arrayAdapter);
+        addControls();
         // sự kiện
         // TextView textView = view.findViewById(R.id.tvDemo);
-        addControls();
-        tinhToan();
-        addEvents();
 
-   }
-   public void tinhToan(){
-       //Lấy tên của dự án
+        //Lấy tên của dự án
         String edtenDuAn = edtTenDuAn.getText().toString();
         edtTenDuAn.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
         //Hoạt tải tiêu chuẩn
-       double heSoHoatTai = Double.parseDouble(edtHoatTaiTieuChuan.getText().toString());
-      // double c = 0.9 + heSoHoatTai;
-      // Toast.makeText(getActivity(), "KQ=" + c , Toast.LENGTH_LONG).show();
+        double heSoHoatTai = Double.parseDouble(edtHoatTaiTieuChuan.getText().toString());
+        // double c = 0.9 + heSoHoatTai;
+        // Toast.makeText(getActivity(), "KQ=" + c , Toast.LENGTH_LONG).show();
 
-       // Chiều dài nhịp
-       double L = Double.parseDouble(edtChieuDaiNhip.getText().toString());
+        // Chiều dài nhịp
+        double L = Double.parseDouble(edtChieuDaiNhip.getText().toString());
 
-       //Chiều dài nhịp tính toán
-       double Ls = Double.parseDouble(edtChieuDaiNhipTinhToan.getText().toString());
+        //Chiều dài nhịp tính toán
+        double Ls = Double.parseDouble(edtChieuDaiNhipTinhToan.getText().toString());
 
-       //Chiều rộng phần xe chạy
-       double Bxc = Double.parseDouble(edtBeRongPhanXeChay.getText().toString());
+        //Chiều rộng phần xe chạy
+        double Bxc = Double.parseDouble(edtBeRongPhanXeChay.getText().toString());
 
-       // Bề rộng lan can
-       double Blc = Double.parseDouble(edtBeRongLanCan.getText().toString());
+        // Bề rộng lan can
+        double Blc = Double.parseDouble(edtBeRongLanCan.getText().toString());
 
-       //Bề rộng toàn cầu
-       double B = Double.parseDouble(edtTongBeRongToanCuaCau.getText().toString());
+        //Bề rộng toàn cầu
+        double B = Double.parseDouble(edtTongBeRongToanCuaCau.getText().toString());
 
-       //Loại liên kết sử dụng
-       String edtlienKetSuDung = edtLoaiLienKetSuDung.getText().toString();
+        //Loại liên kết sử dụng
+        String edtlienKetSuDung = edtLoaiLienKetSuDung.getText().toString();
 
-       //Cấu tạo dầm chủ
-       String edtcauTaoDamChu = edtCauTaoDamChu.getText().toString();
+        //Cấu tạo dầm chủ
+        String edtcauTaoDamChu = edtCauTaoDamChu.getText().toString();
 
-       //Mặt cắt ngang dầm chủ
-         String edtmatCatNgangDamChu = edtMatCatNgangDamChu.getText().toString();
+        //Mặt cắt ngang dầm chủ
+        String edtmatCatNgangDamChu = edtMatCatNgangDamChu.getText().toString();
 
-       //Cường độ chịu nén của bê tông
-       double fc = Double.parseDouble(edtCuongDoChiuNenCuaBeTong.getText().toString());
+        //Cường độ chịu nén của bê tông
+        double fc = Double.parseDouble(edtCuongDoChiuNenCuaBeTong.getText().toString());
 
-       //Tỉ trọng của bê tông
+        //Tỉ trọng của bê tông
         double yc = Double.parseDouble(edtTiTrongCuaBeTong.getText().toString());
 
         //Moduyn đàn hồi BT
-       double Ec = Double.parseDouble(edtModuynDanHoiCuaBeTong.getText().toString());
+        double Ec = Double.parseDouble(edtModuynDanHoiCuaBeTong.getText().toString());
 
-       //Chiều dày của BMC
-       double ts= Double.parseDouble(edtChieuDayBMC.getText().toString());
+        //Chiều dày của BMC
+        double ts= Double.parseDouble(edtChieuDayBMC.getText().toString());
 
-       //Chiều dày lớp phủ
-       double taf= Double.parseDouble(edtChieuDayLopPhu.getText().toString());
+        //Chiều dày lớp phủ
+        double taf= Double.parseDouble(edtChieuDayLopPhu.getText().toString());
 
-       //Tyr trọng VL lớp phủ
-       double yaf = Double.parseDouble(edtTytrongVLlamLopPhu.getText().toString());
+        //Tyr trọng VL lớp phủ
+        double yaf = Double.parseDouble(edtTytrongVLlamLopPhu.getText().toString());
 
-       //Thép kết cấu
-       String edtthepKetCau = edtThepKetCau.getText().toString();
+        //Thép kết cấu
+        String edtthepKetCau = edtThepKetCau.getText().toString();
 
-       //Moduyn đàn hồi thép
-       double Es = Double.parseDouble(edtModuynDanHoiThep.getText().toString());
+        //Moduyn đàn hồi thép
+        double Es = Double.parseDouble(edtModuynDanHoiThep.getText().toString());
 
-       //Cường đọ chịu kéo nhỏ nhất
-       double Fu = Double.parseDouble(edtCuongDoChiuKeoMIN.getText().toString());
+        //Cường đọ chịu kéo nhỏ nhất
+        double Fu = Double.parseDouble(edtCuongDoChiuKeoMIN.getText().toString());
 
-       // Cường độ chảy nhỏ nhất
-       double Fy = Double.parseDouble(edtCuongDoChayMIN.getText().toString());
+        // Cường độ chảy nhỏ nhất
+        double Fy = Double.parseDouble(edtCuongDoChayMIN.getText().toString());
 
-       // Tỉ trọng thép
-       double ys = Double.parseDouble(edtTiTrongThep.getText().toString());
+        // Tỉ trọng thép
+        double ys = Double.parseDouble(edtTiTrongThep.getText().toString());
 
-       //Số lượng dầm chủ
-       double ndc= Double.parseDouble(edtSoLuongDamChu.getText().toString());
+        //Số lượng dầm chủ
+        double ndc= Double.parseDouble(edtSoLuongDamChu.getText().toString());
 
-       //Khoảng cách giữa các dầm chủ
-       double S = Double.parseDouble(edtKhoangCachGiuaDC.getText().toString());
+        //Khoảng cách giữa các dầm chủ
+        double S = Double.parseDouble(edtKhoangCachGiuaDC.getText().toString());
 
-       //Chiều dài phần hẫng
-       double de= Double.parseDouble(edtChieuDaiPhanHang.getText().toString());
+        //Chiều dài phần hẫng
+        double de= Double.parseDouble(edtChieuDaiPhanHang.getText().toString());
 
-       //Chiều cao dàm chủ
-       double D= Double.parseDouble(edtChieuCaoDC.getText().toString());
+        //Chiều cao dàm chủ
+        double D= Double.parseDouble(edtChieuCaoDC.getText().toString());
 
-       //Chiều rộng bản cánh trên
-       double Bft= Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
+        //Chiều rộng bản cánh trên
+        double Bft= Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
 
-       //Chiều dày bản cánh trên
-       double tft= Double.parseDouble(edtChieuDayBCT.getText().toString());
+        //Chiều dày bản cánh trên
+        double tft= Double.parseDouble(edtChieuDayBCT.getText().toString());
 
-       //Chiều rộng bản cánh dưới
-       double Bfb= Double.parseDouble(edtChieuRongBCD.getText().toString());
+        //Chiều rộng bản cánh dưới
+        double Bfb= Double.parseDouble(edtChieuRongBCD.getText().toString());
 
-       //Chiều dày bản cánh dưới
-       double tfb= Double.parseDouble(edtChieuDayBCD.getText().toString());
+        //Chiều dày bản cánh dưới
+        double tfb= Double.parseDouble(edtChieuDayBCD.getText().toString());
 
-       //Chiều dày sườn dầm
-       double tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
+        //Chiều dày sườn dầm
+        double tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
 
-       //Chiều cao sườn dầm
-       double Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
+        //Chiều cao sườn dầm
+        double Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
 
-       // Diện tích dầm thép // Adt
-       double Adt =Bft*tft+Bfb*tfb+Dw*tw;
-
-
+        // Diện tích dầm thép // Adt
+        double Adt= Bft*tft+Bfb*tfb+Dw*tw;
 
 
 
 
-
-
-
-
-
-
-
-
-
+        addEvents();
 
    }
+
 
      public void addControls() {
         edtTenDuAn = getView().findViewById(R.id.edtTenDuAn);
@@ -208,14 +195,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         edtChieuDayBCD= getView().findViewById(R.id.edtChieuDayBCD);
         edtChieuDaySuonDam= getView().findViewById(R.id.edtChieuDaySuonDam);
         edtChieuCaoSuon= getView().findViewById(R.id.edtChieuCaoSuon);
-       final TextView txtDienTichDamThep= (TextView) findViewById(R.id.txtDienTichDamChu);
-      //  btnTinhToan = (Button) findViewById(R.id.btnTinhToan);
+        txtDienTichDamThep=  getView().findViewById((R.id.txtDienTichDamChu);
         btnTinhToan= getView().findViewById(R.id.btnTinhToan);
-
-
-
-
-
 
     }
     public void addEvents() {
@@ -230,13 +211,12 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         });
 
     }
-
     public void tinhToanDienTichThep() {
-        txtDienTichDamThep.setText(""+ Adt);
-
-
-
+        txtDienTichDamThep.setText(""+Adt);
     }
+
+
+
 
 
 }
