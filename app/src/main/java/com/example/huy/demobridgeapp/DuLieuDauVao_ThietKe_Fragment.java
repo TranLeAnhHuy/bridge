@@ -157,7 +157,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
        double Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
 
        // Diện tích dầm thép // Adt
-       double Adt=Bft*tft+Bfb*tfb+Dw*tw;
+       double Adt =Bft*tft+Bfb*tfb+Dw*tw;
 
 
 
@@ -208,7 +208,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         edtChieuDayBCD= getView().findViewById(R.id.edtChieuDayBCD);
         edtChieuDaySuonDam= getView().findViewById(R.id.edtChieuDaySuonDam);
         edtChieuCaoSuon= getView().findViewById(R.id.edtChieuCaoSuon);
-        txtDienTichDamThep= (TextView) findViewById(R.id.txtDienTichDamChu);
+       final TextView txtDienTichDamThep= (TextView) findViewById(R.id.txtDienTichDamChu);
       //  btnTinhToan = (Button) findViewById(R.id.btnTinhToan);
         btnTinhToan= getView().findViewById(R.id.btnTinhToan);
 
