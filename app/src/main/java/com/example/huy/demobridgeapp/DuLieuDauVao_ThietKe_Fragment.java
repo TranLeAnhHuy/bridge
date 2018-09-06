@@ -30,7 +30,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
     EditText edtChieuRongBCD, edtChieuDayBCD, edtChieuDaySuonDam, edtChieuCaoSuon ;
     TextView txtDienTichDamThep;
     Button btnTinhToan;
-
+    double Adt;
 
     public DuLieuDauVao_ThietKe_Fragment (){
 
@@ -153,17 +153,13 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         double Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
 
         // Diện tích dầm thép // Adt
-        double Adt= Bft*tft+Bfb*tfb+Dw*tw;
-
-
-
+        Adt= Bft*tft+Bfb*tfb+Dw*tw;
 
         addEvents();
+    }
 
-   }
 
-
-     public void addControls() {
+    public void addControls() {
         edtTenDuAn = getView().findViewById(R.id.edtTenDuAn);
         edtHoatTaiTieuChuan = getView().findViewById(R.id.edtHoatTaiTieuChuan);
         edtChieuDaiNhip = getView().findViewById(R.id.edtChieuDaiNhip);
@@ -195,18 +191,18 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         edtChieuDayBCD= getView().findViewById(R.id.edtChieuDayBCD);
         edtChieuDaySuonDam= getView().findViewById(R.id.edtChieuDaySuonDam);
         edtChieuCaoSuon= getView().findViewById(R.id.edtChieuCaoSuon);
-        txtDienTichDamThep=  getView().findViewById((R.id.txtDienTichDamChu);
+        txtDienTichDamThep=  getView().findViewById((R.id.txtDienTichDamChu));
         btnTinhToan= getView().findViewById(R.id.btnTinhToan);
 
     }
     public void addEvents() {
-        
+
         btnTinhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // tính toán diện tích thép
                 tinhToanDienTichThep();
-                
+
             }
         });
 
@@ -214,9 +210,4 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
     public void tinhToanDienTichThep() {
         txtDienTichDamThep.setText(""+Adt);
     }
-
-
-
-
-
 }
