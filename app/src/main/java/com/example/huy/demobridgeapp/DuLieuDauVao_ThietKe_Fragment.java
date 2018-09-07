@@ -121,9 +121,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double heSoHoatTai= Double.parseDouble(edtHoatTaiTieuChuan.getText().toString());
 
-            if (heSoHoatTai >0){
-                return;
-            } else{
+            if (heSoHoatTai <0){
+
                 edtHoatTaiTieuChuan.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -133,9 +132,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double L = Double.parseDouble(edtChieuDaiNhip.getText().toString());
 
-            if (L >0){
-                return;
-            } else{
+            if (L <0){
+
                 edtChieuDaiNhip.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -147,9 +145,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Ls = Double.parseDouble(edtChieuDaiNhipTinhToan.getText().toString());
 
-            if (Ls  >0){
-                return;
-            } else{
+            if (Ls <0){
+
                 edtChieuDaiNhipTinhToan.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -160,9 +157,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Bxc = Double.parseDouble(edtBeRongPhanXeChay.getText().toString());
 
-            if (Bxc>0){
-                return;
-            } else{
+            if (Bxc<0){
+
                 edtBeRongPhanXeChay.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -173,9 +169,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Blc = Double.parseDouble(edtBeRongLanCan.getText().toString());
 
-            if (Blc>0){
-                return;
-            } else{
+            if (Blc<0){
+
                 edtBeRongLanCan.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -186,9 +181,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double B = Double.parseDouble(edtTongBeRongToanCuaCau.getText().toString());
 
-            if (B>0){
-                return;
-            } else{
+            if (B<0){
+
                 edtTongBeRongToanCuaCau.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -208,9 +202,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double fc = Double.parseDouble(edtCuongDoChiuNenCuaBeTong.getText().toString());
 
-            if (fc>0){
-                return;
-            } else{
+            if (fc<0){
+
                 edtCuongDoChiuNenCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -222,9 +215,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double yc = Double.parseDouble(edtTiTrongCuaBeTong.getText().toString());
 
-            if ( yc>0){
-                return;
-            } else{
+            if ( yc<0){
+
                 edtTiTrongCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -236,9 +228,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Ec = Double.parseDouble(edtModuynDanHoiCuaBeTong.getText().toString());
 
-            if ( Ec>0){
-                return;
-            } else{
+            if ( Ec<0){
+
                 edtModuynDanHoiCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -249,9 +240,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double ts= Double.parseDouble(edtChieuDayBMC.getText().toString());
 
-            if ( ts>0){
-                return;
-            } else{
+            if ( ts<0){
+
                 edtChieuDayBMC.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -262,9 +252,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double taf= Double.parseDouble(edtChieuDayLopPhu.getText().toString());
 
-            if ( taf>0){
-                return;
-            } else{
+            if ( taf<0){
                 edtChieuDayLopPhu.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -275,9 +263,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double yaf = Double.parseDouble(edtTytrongVLlamLopPhu.getText().toString());
 
-            if ( yaf>0){
-                return;
-            } else{
+            if ( yaf<0){
+
                 edtTytrongVLlamLopPhu.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -292,9 +279,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Es = Double.parseDouble(edtModuynDanHoiThep.getText().toString());
 
-            if (Es >0){
-                return;
-            } else{
+            if (Es <0){
+
                 edtModuynDanHoiThep.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -306,9 +292,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Fu = Double.parseDouble(edtCuongDoChiuKeoMIN.getText().toString());
 
-            if (Fu >0){
-                return;
-            } else{
+            if (Fu <0){
+
                 edtCuongDoChiuKeoMIN.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -319,9 +304,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Fy = Double.parseDouble(edtCuongDoChayMIN.getText().toString());
 
-            if (Fy >0){
-                return;
-            } else{
+            if (Fy <0){
+
                 edtCuongDoChayMIN.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -332,9 +316,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double ys = Double.parseDouble(edtTiTrongThep.getText().toString());
 
-            if (ys >0){
-                return;
-            } else{
+            if (ys <0){
+
                 edtTiTrongThep.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -345,9 +328,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double ndc= Double.parseDouble(edtSoLuongDamChu.getText().toString());
 
-            if (ndc >0){
-                return;
-            } else{
+            if (ndc <0){
+
                 edtSoLuongDamChu.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -359,9 +341,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double S = Double.parseDouble(edtKhoangCachGiuaDC.getText().toString());
 
-            if (S >0){
-                return;
-            } else{
+            if (S <0){
+
                 edtKhoangCachGiuaDC.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -372,9 +353,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double de= Double.parseDouble(edtChieuDaiPhanHang.getText().toString());
 
-            if (de >0){
-                return;
-            } else{
+            if (de <0){
+
                 edtChieuDaiPhanHang.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -385,9 +365,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double D= Double.parseDouble(edtChieuCaoDC.getText().toString());
 
-            if (D >0){
-                return;
-            } else{
+            if (D <0){
+
                 edtChieuCaoDC.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -399,9 +378,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Bft= Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
 
-            if (Bft>0){
-                return;
-            } else{
+            if (Bft<0){
+
                 edtChieuRongBanCanhTren.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -413,9 +391,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double tft= Double.parseDouble(edtChieuDayBCT.getText().toString());
 
-            if (tft>0){
-                return;
-            } else{
+            if (tft<0){
+
                 edtChieuDayBCT.setError("Hãy nhập giá trị");
             }
         } catch (Exception e){
@@ -426,9 +403,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Bfb= Double.parseDouble(edtChieuRongBCD.getText().toString());
 
-            if (Bfb>0){
-                return;
-            } else{
+            if (Bfb<0){
+
                 edtChieuRongBCD.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -439,9 +415,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double tfb= Double.parseDouble(edtChieuDayBCD.getText().toString());
 
-            if (tfb>0){
-                return;
-            } else{
+            if (tfb<0){
+
                 edtChieuDayBCD.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -452,9 +427,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
 
-            if (tw>0){
-                return;
-            } else{
+            if (tw<0){
+
                 edtChieuDaySuonDam.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -465,9 +439,8 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         try {
             double Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
 
-            if (Dw>0){
-                return;
-            } else{
+            if (Dw<0){
+
                 edtChieuCaoSuon.setError("Lỗi: Nhập số lớn hơn 0");
             }
         } catch (Exception e){
@@ -477,6 +450,6 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         // Diện tích dầm thép // Adt
         Adt= Bft*tft+Bfb*tfb+Dw*tw;
 
-        txtDienTichDamThep.setText(""+Adt);
+        txtDienTichDamThep.setText("Kết quả="+Adt);
     }
 }
