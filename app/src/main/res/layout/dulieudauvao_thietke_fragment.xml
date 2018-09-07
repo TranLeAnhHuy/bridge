@@ -1842,7 +1842,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="55dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
