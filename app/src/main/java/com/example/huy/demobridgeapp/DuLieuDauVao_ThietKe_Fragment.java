@@ -61,6 +61,62 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         String edtenDuAn = edtTenDuAn.getText().toString();
         edtTenDuAn.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
+
+
+
+    }
+
+
+    public void addControls() {
+        edtTenDuAn = getView().findViewById(R.id.edtTenDuAn);
+        edtHoatTaiTieuChuan = getView().findViewById(R.id.edtHoatTaiTieuChuan);
+        edtChieuDaiNhip = getView().findViewById(R.id.edtChieuDaiNhip);
+        edtChieuDaiNhipTinhToan = getView().findViewById(R.id.edtChieuDaiNhipTinhToan);
+        edtBeRongPhanXeChay = getView().findViewById(R.id.edtBeRongPhanXeChay);
+        edtBeRongLanCan = getView().findViewById(R.id.edtBeRongLanCan);
+        edtTongBeRongToanCuaCau = getView().findViewById(R.id.edtTongBeRongCuaCau);
+        edtLoaiLienKetSuDung = getView().findViewById(R.id.edtLoaiLienKetSuDung);
+        edtCauTaoDamChu = getView().findViewById(R.id.edtCauTaoDamChu);
+        edtMatCatNgangDamChu = getView().findViewById(R.id.edtMatCatNgangDamChu);
+        edtCuongDoChiuNenCuaBeTong = getView().findViewById(R.id.edtCuongDoChiuNenCuaBeTong);
+        edtTiTrongCuaBeTong = getView().findViewById(R.id.edtTiTrongCuaBeTong);
+        edtModuynDanHoiCuaBeTong = getView().findViewById(R.id.edtModuynDanHoiCuaBeTong);
+        edtChieuDayBMC = getView().findViewById(R.id.edtChieuDayBMC);
+        edtChieuDayLopPhu= getView().findViewById(R.id.edtChieuDayLopPhu);
+        edtTytrongVLlamLopPhu= getView().findViewById(R.id.edtTytrongVLlamLopPhu);
+        edtThepKetCau = getView().findViewById(R.id.edtThepKetCau);
+        edtModuynDanHoiThep= getView().findViewById(R.id.edtModuynDanHoiThep);
+        edtCuongDoChiuKeoMIN= getView().findViewById(R.id.edtCuongDoChiuKeoMIN);
+        edtCuongDoChayMIN = getView().findViewById(R.id.edtCuongDoChayMIN);
+        edtTiTrongThep = getView().findViewById(R.id.edtTiTrongThep);
+        edtSoLuongDamChu = getView().findViewById(R.id.edtSoLuongDamChu);
+        edtKhoangCachGiuaDC= getView().findViewById(R.id.edtKhoangCachGiuaDC);
+        edtChieuDaiPhanHang= getView().findViewById(R.id.edtChieuDaiPhanHang);
+        edtChieuCaoDC= getView().findViewById(R.id.edtChieuCaoDC);
+        edtChieuRongBanCanhTren= getView().findViewById(R.id.edtChieuRongBanCanhTren);
+        edtChieuDayBCT= getView().findViewById(R.id.edtChieuDayBCT);
+        edtChieuRongBCD= getView().findViewById(R.id.edtChieuRongBCD);
+        edtChieuDayBCD= getView().findViewById(R.id.edtChieuDayBCD);
+        edtChieuDaySuonDam= getView().findViewById(R.id.edtChieuDaySuonDam);
+        edtChieuCaoSuon= getView().findViewById(R.id.edtChieuCaoSuon);
+        txtDienTichDamThep=  getView().findViewById((R.id.txtDienTichDamChu));
+        btnTinhToan= getView().findViewById(R.id.btnTinhToan);
+
+    }
+    public void addEvents() {
+
+
+        btnTinhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // tính toán diện tích thép
+                tinhToanDienTichThep();
+
+            }
+        });
+
+    }
+    public void tinhToanDienTichThep() {
         //Hoạt tải tiêu chuẩn
         try {
             double heSoHoatTai= Double.parseDouble(edtHoatTaiTieuChuan.getText().toString());
@@ -421,59 +477,6 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         // Diện tích dầm thép // Adt
         Adt= Bft*tft+Bfb*tfb+Dw*tw;
 
-
-    }
-
-
-    public void addControls() {
-        edtTenDuAn = getView().findViewById(R.id.edtTenDuAn);
-        edtHoatTaiTieuChuan = getView().findViewById(R.id.edtHoatTaiTieuChuan);
-        edtChieuDaiNhip = getView().findViewById(R.id.edtChieuDaiNhip);
-        edtChieuDaiNhipTinhToan = getView().findViewById(R.id.edtChieuDaiNhipTinhToan);
-        edtBeRongPhanXeChay = getView().findViewById(R.id.edtBeRongPhanXeChay);
-        edtBeRongLanCan = getView().findViewById(R.id.edtBeRongLanCan);
-        edtTongBeRongToanCuaCau = getView().findViewById(R.id.edtTongBeRongCuaCau);
-        edtLoaiLienKetSuDung = getView().findViewById(R.id.edtLoaiLienKetSuDung);
-        edtCauTaoDamChu = getView().findViewById(R.id.edtCauTaoDamChu);
-        edtMatCatNgangDamChu = getView().findViewById(R.id.edtMatCatNgangDamChu);
-        edtCuongDoChiuNenCuaBeTong = getView().findViewById(R.id.edtCuongDoChiuNenCuaBeTong);
-        edtTiTrongCuaBeTong = getView().findViewById(R.id.edtTiTrongCuaBeTong);
-        edtModuynDanHoiCuaBeTong = getView().findViewById(R.id.edtModuynDanHoiCuaBeTong);
-        edtChieuDayBMC = getView().findViewById(R.id.edtChieuDayBMC);
-        edtChieuDayLopPhu= getView().findViewById(R.id.edtChieuDayLopPhu);
-        edtTytrongVLlamLopPhu= getView().findViewById(R.id.edtTytrongVLlamLopPhu);
-        edtThepKetCau = getView().findViewById(R.id.edtThepKetCau);
-        edtModuynDanHoiThep= getView().findViewById(R.id.edtModuynDanHoiThep);
-        edtCuongDoChiuKeoMIN= getView().findViewById(R.id.edtCuongDoChiuKeoMIN);
-        edtCuongDoChayMIN = getView().findViewById(R.id.edtCuongDoChayMIN);
-        edtTiTrongThep = getView().findViewById(R.id.edtTiTrongThep);
-        edtSoLuongDamChu = getView().findViewById(R.id.edtSoLuongDamChu);
-        edtKhoangCachGiuaDC= getView().findViewById(R.id.edtKhoangCachGiuaDC);
-        edtChieuDaiPhanHang= getView().findViewById(R.id.edtChieuDaiPhanHang);
-        edtChieuCaoDC= getView().findViewById(R.id.edtChieuCaoDC);
-        edtChieuRongBanCanhTren= getView().findViewById(R.id.edtChieuRongBanCanhTren);
-        edtChieuDayBCT= getView().findViewById(R.id.edtChieuDayBCT);
-        edtChieuRongBCD= getView().findViewById(R.id.edtChieuRongBCD);
-        edtChieuDayBCD= getView().findViewById(R.id.edtChieuDayBCD);
-        edtChieuDaySuonDam= getView().findViewById(R.id.edtChieuDaySuonDam);
-        edtChieuCaoSuon= getView().findViewById(R.id.edtChieuCaoSuon);
-        txtDienTichDamThep=  getView().findViewById((R.id.txtDienTichDamChu));
-        btnTinhToan= getView().findViewById(R.id.btnTinhToan);
-
-    }
-    public void addEvents() {
-
-        btnTinhToan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // tính toán diện tích thép
-                tinhToanDienTichThep();
-
-            }
-        });
-
-    }
-    public void tinhToanDienTichThep() {
         txtDienTichDamThep.setText(""+Adt);
     }
 }

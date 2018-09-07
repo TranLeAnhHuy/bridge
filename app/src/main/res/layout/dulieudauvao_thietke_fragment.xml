@@ -568,6 +568,7 @@
                 android:minWidth="60dp"
                 android:id="@+id/edtChieuDayBMC"
                 android:hint="269"
+                android:inputType="numberDecimal"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
