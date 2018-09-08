@@ -58,17 +58,17 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 />
+
             <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minWidth="1000dp"
                 android:paddingLeft="10dp"
-                android:textColor="#fb04069c"
                 android:paddingRight="10dp"
-                android:id="@+id/spinner"
+                android:textColor="#fb04069c"
 
-                >
-            </Spinner>
+                ></Spinner>
         </LinearLayout>
         // phần số liệu chung
 
@@ -524,14 +524,14 @@
                 android:textColor="#6c7070"
                 />
 
-            <EditText
+            <TextView
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:minWidth="60dp"
                 android:inputType="numberDecimal"
-                android:id="@+id/edtModuynDanHoiCuaBeTong"
-                android:hint="31799"
+                android:id="@+id/txtModuynDanHoiCuaBeTong"
+                android:background="#f2f4f4"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1325,8 +1325,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="55dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edtSoLuongDamNgang1Nhip"
+                android:inputType="numberDecimal"
                 android:textColor="#fb04069c"
+                android:hint="2"
                 android:textSize="16dp" />
 
             <TextView
@@ -1360,7 +1362,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="62dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edtTongSoDamNgang"
+                android:inputType="numberDecimal"
+                android:hint="14"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1395,7 +1399,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="90dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edtKhoangCachTimDNĐenauDC"
+                android:inputType="numberDecimal"
+                android:hint="300"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1429,7 +1435,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="90dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edtS2"
+                android:inputType="numberDecimal"
+                android:hint="3200"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1464,7 +1472,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="53dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edthn"
+                android:inputType="numberDecimal"
+                android:hint="600"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1499,7 +1509,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="44dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edtLdn"
+                android:inputType="numberDecimal"
+                android:hint="1950"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1530,11 +1542,49 @@
                 />
 
             <EditText
+                android:id="@+id/edtbn"
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="83dp"
+                android:hint="300"
+                android:inputType="numberDecimal"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:textColor="#fb04069c"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="mm"
+                android:textColor="#6c7070"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+        // Chiều dày bản cánh DN
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:minWidth="100dp"
+                android:text="Chiều dày bản cánh"
+                android:textColor="#6c7070"
+                />
+
+            <EditText
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="68dp"
+                android:minWidth="60dp"
+                android:id="@+id/edttfdn"
+                android:inputType="numberDecimal"
+                android:hint="20"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1569,7 +1619,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="97dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edttwdn"
+                android:inputType="numberDecimal"
+                android:hint="14"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1604,7 +1656,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="96dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edthwdn"
+                android:inputType="numberDecimal"
+                android:hint="560"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1634,12 +1688,13 @@
                 android:textColor="#6c7070"
                 />
 
-            <EditText
+            <TextView
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="87dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/txtAdn"
+                android:background="#f2f4f4"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1706,8 +1761,10 @@
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="105dp"
-                android:minWidth="70dp"
-                android:textAllCaps="true"
+                android:minWidth="65dp"
+                android:id="@+id/edta"
+                android:inputType="numberDecimal"
+                android:hint="11"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1716,6 +1773,41 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="/nhịp"
+                android:textColor="#6c7070"
+                android:textSize="16dp" />
+        </LinearLayout>
+        // tổng số hệ liên kết ngang trong 1 nhịp
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textSize="16dp"
+                android:minWidth="100dp"
+                android:text="Tổng số hệ lkn"
+                android:textColor="#6c7070"
+                />
+
+            <EditText
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:minWidth="60dp"
+                android:id="@+id/edtnlkn"
+                android:hint="77"
+                android:inputType="numberDecimal"
+                android:textColor="#fb04069c"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="mm"
                 android:textColor="#6c7070"
                 android:textSize="16dp" />
         </LinearLayout>
@@ -1740,7 +1832,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edthlkn"
+                android:hint="1170"
+                android:inputType="numberDecimal"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1774,7 +1868,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="100dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/edtSlkn"
+                android:inputType="numberDecimal"
+                android:hint="3300"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1843,7 +1939,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="55dp"
                 android:minWidth="60dp"
-                
+                android:id="@+id/edtb"
+                android:inputType="numberDecimal"
+                android:hint="12"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 
@@ -1873,12 +1971,13 @@
                 android:textColor="#6c7070"
                 />
 
-            <EditText
+            <TextView
                 android:layout_width="90dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
                 android:minWidth="60dp"
-                android:textAllCaps="true"
+                android:id="@+id/txtnlkd"
+                android:background="#f2f4f4"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />
 

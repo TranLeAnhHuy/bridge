@@ -19,7 +19,6 @@ import android.widget.Toast;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-import static android.widget.Toast.LENGTH_LONG;
 import static com.example.huy.demobridgeapp.R.layout.dulieudauvao_thietke_fragment;
 
 public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
@@ -27,10 +26,16 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
     EditText edtLoaiLienKetSuDung, edtCauTaoDamChu, edtMatCatNgangDamChu, edtCuongDoChiuNenCuaBeTong, edtTiTrongCuaBeTong, edtModuynDanHoiCuaBeTong ;
     EditText edtChieuDayBMC, edtChieuDayLopPhu, edtTytrongVLlamLopPhu, edtThepKetCau, edtModuynDanHoiThep, edtCuongDoChiuKeoMIN, edtCuongDoChayMIN ;
     EditText edtTiTrongThep, edtSoLuongDamChu, edtKhoangCachGiuaDC, edtChieuDaiPhanHang, edtChieuCaoDC, edtChieuRongBanCanhTren, edtChieuDayBCT;
-    EditText edtChieuRongBCD, edtChieuDayBCD, edtChieuDaySuonDam, edtChieuCaoSuon ;
-    TextView txtDienTichDamThep;
+    EditText edtChieuRongBCD, edtChieuDayBCD, edtChieuDaySuonDam, edtChieuCaoSuon, edtSoLuongDamNgang1Nhip, edtTongSoDamNgang;
+    EditText edtKhoangCachTimDNĐenauDC, edtS2,edthn, edtLdn, edtbn, edttfdn, edttwdn, edthwdn, edta, edtnlkn, edthlkn, edtSlkn, edtb;
+    TextView txtDienTichDamThep,txtModuynDanHoiCuaBeTong, txtAdn, txtnlkd;
     Button btnTinhToan;
-    double Adt,heSoHoatTai, L,Ls,Bxc, Blc,B,fc,yc,Ec,ts,taf,yaf,Es,Fu,Fy,ys,ndc,S,de,D, Bft, tft, Bfb, tfb, tw ,Dw;
+    double Adt,heSoHoatTai, L,Ls,Bxc, Blc,B,fc,yc,Ec,ts,taf,yaf,Es,Fu,Fy,ys,ndc,S,de,D, Bft, tft, Bfb, tfb, tw ,Dw, ndn1, ndn, S1;
+    double S2, hn, Ldn, bn, tfdn, twdn,hwdn, Adn, a, nlkn, hlkn, Slkn, b, nlkd, bi, bc, bi1,bi2,bi3, bii ;
+    double bc1, bc2, bc3, bcc, n;
+    Spinner spinnerDanhSach;
+    int lastedSelected=-1;
+    final ArrayList<String> arrayDanhSach= new ArrayList<String>();
 
     public DuLieuDauVao_ThietKe_Fragment (){
 
@@ -47,25 +52,20 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         // ánh xạ spinner
         Spinner spinnerDanhSach = view.findViewById(R.id.spinner);
-        final ArrayList<String> arrayDanhSach= new ArrayList<String>();
+
         arrayDanhSach.add("Dầm thép liên hợp");
         arrayDanhSach.add("Dầm thép không liên hợp");
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,  arrayDanhSach);
+        ArrayAdapter arrayAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_spinner_item,arrayDanhSach);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         spinnerDanhSach.setAdapter(arrayAdapter);
+
         addControls();
         addEvents();
-        // sự kiện
-        // TextView textView = view.findViewById(R.id.tvDemo);
-
         //Lấy tên của dự án
         String edtenDuAn = edtTenDuAn.getText().toString();
         edtTenDuAn.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
-
-
-
     }
-
 
     public void addControls() {
         edtTenDuAn = getView().findViewById(R.id.edtTenDuAn);
@@ -80,7 +80,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         edtMatCatNgangDamChu = getView().findViewById(R.id.edtMatCatNgangDamChu);
         edtCuongDoChiuNenCuaBeTong = getView().findViewById(R.id.edtCuongDoChiuNenCuaBeTong);
         edtTiTrongCuaBeTong = getView().findViewById(R.id.edtTiTrongCuaBeTong);
-        edtModuynDanHoiCuaBeTong = getView().findViewById(R.id.edtModuynDanHoiCuaBeTong);
+        txtModuynDanHoiCuaBeTong = getView().findViewById(R.id.txtModuynDanHoiCuaBeTong);
         edtChieuDayBMC = getView().findViewById(R.id.edtChieuDayBMC);
         edtChieuDayLopPhu= getView().findViewById(R.id.edtChieuDayLopPhu);
         edtTytrongVLlamLopPhu= getView().findViewById(R.id.edtTytrongVLlamLopPhu);
@@ -101,36 +101,67 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         edtChieuCaoSuon= getView().findViewById(R.id.edtChieuCaoSuon);
         txtDienTichDamThep=  getView().findViewById((R.id.txtDienTichDamChu));
         btnTinhToan= getView().findViewById(R.id.btnTinhToan);
-
+        edtSoLuongDamNgang1Nhip= getView().findViewById(R.id.edtSoLuongDamNgang1Nhip);
+        edtTongSoDamNgang= getView().findViewById(R.id.edtTongSoDamNgang);
+        edtKhoangCachTimDNĐenauDC= getView().findViewById(R.id.edtKhoangCachTimDNĐenauDC);
+        edtS2= getView().findViewById(R.id.edtS2);
+        edthn= getView().findViewById(R.id.edthn);
+        edtLdn= getView().findViewById(R.id.edtLdn);
+        edtbn= getView().findViewById(R.id.edtbn);
+        edttfdn= getView().findViewById(R.id.edttfdn);
+        edttwdn= getView().findViewById(R.id.edttwdn);
+        edthwdn= getView().findViewById(R.id.edthwdn);
+        txtAdn= getView().findViewById(R.id.txtAdn);
+        edta= getView().findViewById(R.id.edta);
+        edtnlkn= getView().findViewById(R.id.edtnlkn);
+        edthlkn= getView().findViewById(R.id.edthlkn);
+        edtSlkn= getView().findViewById(R.id.edtSlkn);
+        edtb= getView().findViewById(R.id.edtb);
+        txtnlkd= getView().findViewById(R.id.txtnlkd);
     }
     public void addEvents() {
-
-
         btnTinhToan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // tính toán diện tích thép
                 tinhToanDienTichThep();
+                tinhToanEBeTong();
+                tinhToanDienTichDamNgang();
+                tinhToanTongSoHLKDoc();
+                tinhChieuRongHuuHieuBanCanhDamGiua();
+                tinhChieuRongHuuHieuBanCanhDamBien();
+                tinhTisoModuyn();
+                spinnerDanhSach.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        Toast.makeText(getActivity(),"ABC"+arrayDanhSach.get(position),Toast.LENGTH_SHORT).show();
+                        lastedSelected=position;
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+
+
+
+
 
             }
         });
 
     }
-    public void tinhToanDienTichThep() {
-        //Hoạt tải tiêu chuẩn
-        try {
-            double heSoHoatTai= Double.parseDouble(edtHoatTaiTieuChuan.getText().toString());
 
-            if (heSoHoatTai <0){
-
-                edtHoatTaiTieuChuan.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e){
-            edtHoatTaiTieuChuan.setError("Hãy nhập giá trị");
-        }
+    public void tinhTisoModuyn(){
+        n=Math.ceil(Es/Ec);
+        Toast.makeText(getActivity(), "n="+n,Toast.LENGTH_LONG).show();
+    }
+    public void tinhChieuRongHuuHieuBanCanhDamBien(){
         // Chiều dài nhịp
         try {
-            double L = Double.parseDouble(edtChieuDaiNhip.getText().toString());
+            L = Double.parseDouble(edtChieuDaiNhip.getText().toString());
 
             if (L <0){
 
@@ -139,11 +170,281 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         } catch (Exception e){
             edtChieuDaiNhip.setError("Hãy nhập giá trị");
         }
+        bc1= 1000*L/8;
+        //Chiều dày sườn dầm
+        try {
+            tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
+
+            if (tw<0){
+
+                edtChieuDaySuonDam.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtChieuDaySuonDam.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày của BMC
+        try {
+            ts= Double.parseDouble(edtChieuDayBMC.getText().toString());
+
+            if ( ts<0){
+
+                edtChieuDayBMC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtChieuDayBMC.setError("Hãy nhập giá trị");
+        }
+        //Chiều rộng bản cánh trên
+        try {
+            Bft= Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
+
+            if (Bft<0){
+
+                edtChieuRongBanCanhTren.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtChieuRongBanCanhTren.setError("Hãy nhập giá trị");
+        }
+        bc2= 6*ts+Math.max((tw/2),(Bft/4));
+        bc3=de;
+        bcc=Math.min(bc1,bc2);
+        bc=Math.min(bcc,bc3);
+        Toast.makeText(getActivity(),"bc="+bc,Toast.LENGTH_LONG).show();
+    }
+    public void tinhChieuRongHuuHieuBanCanhDamGiua(){
+        // Chiều dài nhịp
+        try {
+            L = Double.parseDouble(edtChieuDaiNhip.getText().toString());
+
+            if (L <0){
+
+                edtChieuDaiNhip.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtChieuDaiNhip.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày của BMC
+        try {
+            ts= Double.parseDouble(edtChieuDayBMC.getText().toString());
+
+            if ( ts<0){
+
+                edtChieuDayBMC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtChieuDayBMC.setError("Hãy nhập giá trị");
+        }
+        //Chiều dày sườn dầm
+        try {
+            tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
+
+            if (tw<0){
+
+                edtChieuDaySuonDam.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtChieuDaySuonDam.setError("Hãy nhập giá trị");
+        }
+        //Chiều rộng bản cánh trên
+        try {
+            Bft= Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
+
+            if (Bft<0){
+
+                edtChieuRongBanCanhTren.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtChieuRongBanCanhTren.setError("Hãy nhập giá trị");
+        }
+
+        //Khoảng cách giữa các dầm chủ
+        try {
+            S = Double.parseDouble(edtKhoangCachGiuaDC.getText().toString());
+
+            if (S <0){
+
+                edtKhoangCachGiuaDC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtKhoangCachGiuaDC.setError("Hãy nhập giá trị");
+        }
+        bi1=(1000*L)/4;
+        bi2=12*ts+Math.max(tw,0.5*Bft);
+        bi3=S;
+        bii=Math.min(bi1,bi2);
+        bi=Math.min(bii,bi3);
+      Toast.makeText(getActivity(),"bi="+bi, Toast.LENGTH_LONG).show();
+    }
+
+
+    public void tinhToanTongSoHLKDoc(){
+        //Số lượng dầm chủ
+        try {
+            ndc= Double.parseDouble(edtSoLuongDamChu.getText().toString());
+
+            if (ndc <0){
+
+                edtSoLuongDamChu.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtSoLuongDamChu.setError("Hãy nhập giá trị");
+        }
+        //Số lượng hệ liên kết dọc theo phương dọc
+        try {
+            b = Double.parseDouble(edtb.getText().toString());
+
+            if (b<0){
+
+                edtb.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtb.setError("Hãy nhập giá trị");
+        }
+        nlkd= b*(ndc/2);
+        txtnlkd.setText(""+nlkd);
+
+
+    }
+    public void tinhToanDienTichDamNgang(){
+        // Số lượng dầm ngang theo phương dọc cầu trong 1 nhịp edtSoLuongDamNgang1Nhip
+        try {
+            ndn1 = Double.parseDouble(edtSoLuongDamNgang1Nhip.getText().toString());
+
+            if (ndn1<0){
+
+                edtSoLuongDamNgang1Nhip.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtSoLuongDamNgang1Nhip.setError("Hãy nhập giá trị");
+        }
+
+        //Tổng số dầm ngang 1 nhịp
+        try {
+            ndn = Double.parseDouble(edtTongSoDamNgang.getText().toString());
+
+            if (ndn<0){
+
+                edtTongSoDamNgang.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtTongSoDamNgang.setError("Hãy nhập giá trị");
+        }
+        // edtKhoangCachTimDNĐenauDC Khoàng cách dm đến dầm chủ
+        try {
+            S1 = Double.parseDouble(edtKhoangCachTimDNĐenauDC.getText().toString());
+
+            if (S1<0){
+
+                edtKhoangCachTimDNĐenauDC.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtKhoangCachTimDNĐenauDC.setError("Hãy nhập giá trị");
+        }
+
+        //Khoảng cách tim dầm ngang dến hệ Liên kết ngang
+        try {
+            S2 = Double.parseDouble(edtS2.getText().toString());
+
+            if (S2<0){
+
+                edtS2.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtS2.setError("Hãy nhập giá trị");
+        }
+
+        // Chiều cao dầm ngang
+        try {
+            hn = Double.parseDouble(edthn.getText().toString());
+
+            if (hn<0){
+
+                edthn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edthn.setError("Hãy nhập giá trị");
+        }
+
+        //Chiều dài dầm ngang
+        try {
+            Ldn = Double.parseDouble(edtLdn.getText().toString());
+
+            if (Ldn<0){
+
+                edtLdn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtLdn.setError("Hãy nhập giá trị");
+        }
+
+        //Bề rộng bản cánh dầm ngang
+        try {
+            bn = Double.parseDouble(edtbn.getText().toString());
+
+            if (bn<0){
+
+                edtbn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtbn.setError("Hãy nhập giá trị");
+        }
+        // Chiều dày bản cánh dầm ngang
+        try {
+            tfdn = Double.parseDouble(edttfdn.getText().toString());
+
+            if (tfdn<0){
+
+                edttfdn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edttfdn.setError("Hãy nhập giá trị");
+        }
+
+        // Chiều dày sườn dầm ngang
+        try {
+            twdn = Double.parseDouble(edttwdn.getText().toString());
+
+            if (twdn<0){
+
+                edttwdn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edttwdn.setError("Hãy nhập giá trị");
+        }
+
+        // Chiều cao sườn dâm ngang
+        try {
+            hwdn = Double.parseDouble(edthwdn.getText().toString());
+
+            if (hwdn<0){
+
+                edthwdn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edthwdn.setError("Hãy nhập giá trị");
+        }
+
+        // Diện tích mặt cắt dâm ngang
+        Adn= twdn*hwdn+bn*tfdn*ndn1;
+        txtAdn.setText(""+Adn);
+
+    }
+    public void tinhToanDienTichThep() {
+        //Hoạt tải tiêu chuẩn
+        try {
+            heSoHoatTai= Double.parseDouble(edtHoatTaiTieuChuan.getText().toString());
+
+            if (heSoHoatTai <0){
+
+                edtHoatTaiTieuChuan.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtHoatTaiTieuChuan.setError("Hãy nhập giá trị");
+        }
 
 
         //Chiều dài nhịp tính toán
         try {
-            double Ls = Double.parseDouble(edtChieuDaiNhipTinhToan.getText().toString());
+             Ls = Double.parseDouble(edtChieuDaiNhipTinhToan.getText().toString());
 
             if (Ls <0){
 
@@ -155,7 +456,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Chiều rộng phần xe chạy
         try {
-            double Bxc = Double.parseDouble(edtBeRongPhanXeChay.getText().toString());
+            Bxc = Double.parseDouble(edtBeRongPhanXeChay.getText().toString());
 
             if (Bxc<0){
 
@@ -167,7 +468,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         // Bề rộng lan can
         try {
-            double Blc = Double.parseDouble(edtBeRongLanCan.getText().toString());
+             Blc = Double.parseDouble(edtBeRongLanCan.getText().toString());
 
             if (Blc<0){
 
@@ -179,7 +480,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Bề rộng toàn cầu
         try {
-            double B = Double.parseDouble(edtTongBeRongToanCuaCau.getText().toString());
+             B = Double.parseDouble(edtTongBeRongToanCuaCau.getText().toString());
 
             if (B<0){
 
@@ -198,59 +499,11 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
         //Mặt cắt ngang dầm chủ
         String edtmatCatNgangDamChu = edtMatCatNgangDamChu.getText().toString();
 
-        //Cường độ chịu nén của bê tông
-        try {
-            double fc = Double.parseDouble(edtCuongDoChiuNenCuaBeTong.getText().toString());
 
-            if (fc<0){
-
-                edtCuongDoChiuNenCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e){
-            edtCuongDoChiuNenCuaBeTong.setError("Hãy nhập giá trị");
-        }
-
-
-        //Tỉ trọng của bê tông
-        try {
-            double yc = Double.parseDouble(edtTiTrongCuaBeTong.getText().toString());
-
-            if ( yc<0){
-
-                edtTiTrongCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e){
-            edtTiTrongCuaBeTong.setError("Hãy nhập giá trị");
-        }
-
-        //Moduyn đàn hồi BT
-        //Tỉ trọng của bê tông
-        try {
-            double Ec = Double.parseDouble(edtModuynDanHoiCuaBeTong.getText().toString());
-
-            if ( Ec<0){
-
-                edtModuynDanHoiCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e){
-            edtModuynDanHoiCuaBeTong.setError("Hãy nhập giá trị");
-        }
-
-        //Chiều dày của BMC
-        try {
-            double ts= Double.parseDouble(edtChieuDayBMC.getText().toString());
-
-            if ( ts<0){
-
-                edtChieuDayBMC.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e){
-            edtChieuDayBMC.setError("Hãy nhập giá trị");
-        }
 
         //Chiều dày lớp phủ
         try {
-            double taf= Double.parseDouble(edtChieuDayLopPhu.getText().toString());
+             taf= Double.parseDouble(edtChieuDayLopPhu.getText().toString());
 
             if ( taf<0){
                 edtChieuDayLopPhu.setError("Lỗi: Nhập số lớn hơn 0");
@@ -261,7 +514,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Tyr trọng VL lớp phủ
         try {
-            double yaf = Double.parseDouble(edtTytrongVLlamLopPhu.getText().toString());
+             yaf = Double.parseDouble(edtTytrongVLlamLopPhu.getText().toString());
 
             if ( yaf<0){
 
@@ -277,7 +530,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Moduyn đàn hồi thép
         try {
-            double Es = Double.parseDouble(edtModuynDanHoiThep.getText().toString());
+             Es = Double.parseDouble(edtModuynDanHoiThep.getText().toString());
 
             if (Es <0){
 
@@ -290,7 +543,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Cường đọ chịu kéo nhỏ nhất
         try {
-            double Fu = Double.parseDouble(edtCuongDoChiuKeoMIN.getText().toString());
+            Fu = Double.parseDouble(edtCuongDoChiuKeoMIN.getText().toString());
 
             if (Fu <0){
 
@@ -302,7 +555,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         // Cường độ chảy nhỏ nhất
         try {
-            double Fy = Double.parseDouble(edtCuongDoChayMIN.getText().toString());
+             Fy = Double.parseDouble(edtCuongDoChayMIN.getText().toString());
 
             if (Fy <0){
 
@@ -314,7 +567,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         // Tỉ trọng thép
         try {
-            double ys = Double.parseDouble(edtTiTrongThep.getText().toString());
+            ys = Double.parseDouble(edtTiTrongThep.getText().toString());
 
             if (ys <0){
 
@@ -324,34 +577,9 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
             edtTiTrongThep.setError("Hãy nhập giá trị");
         }
 
-        //Số lượng dầm chủ
-        try {
-            double ndc= Double.parseDouble(edtSoLuongDamChu.getText().toString());
-
-            if (ndc <0){
-
-                edtSoLuongDamChu.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e){
-            edtSoLuongDamChu.setError("Hãy nhập giá trị");
-        }
-
-
-        //Khoảng cách giữa các dầm chủ
-        try {
-            double S = Double.parseDouble(edtKhoangCachGiuaDC.getText().toString());
-
-            if (S <0){
-
-                edtKhoangCachGiuaDC.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e){
-            edtKhoangCachGiuaDC.setError("Hãy nhập giá trị");
-        }
-
         //Chiều dài phần hẫng
         try {
-            double de= Double.parseDouble(edtChieuDaiPhanHang.getText().toString());
+            de= Double.parseDouble(edtChieuDaiPhanHang.getText().toString());
 
             if (de <0){
 
@@ -363,7 +591,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Chiều cao dàm chủ
         try {
-            double D= Double.parseDouble(edtChieuCaoDC.getText().toString());
+             D= Double.parseDouble(edtChieuCaoDC.getText().toString());
 
             if (D <0){
 
@@ -376,7 +604,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Chiều rộng bản cánh trên
         try {
-            double Bft= Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
+             Bft= Double.parseDouble(edtChieuRongBanCanhTren.getText().toString());
 
             if (Bft<0){
 
@@ -389,7 +617,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Chiều dày bản cánh trên
         try {
-            double tft= Double.parseDouble(edtChieuDayBCT.getText().toString());
+             tft= Double.parseDouble(edtChieuDayBCT.getText().toString());
 
             if (tft<0){
 
@@ -401,7 +629,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Chiều rộng bản cánh dưới
         try {
-            double Bfb= Double.parseDouble(edtChieuRongBCD.getText().toString());
+             Bfb= Double.parseDouble(edtChieuRongBCD.getText().toString());
 
             if (Bfb<0){
 
@@ -413,7 +641,7 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
 
         //Chiều dày bản cánh dưới
         try {
-            double tfb= Double.parseDouble(edtChieuDayBCD.getText().toString());
+             tfb= Double.parseDouble(edtChieuDayBCD.getText().toString());
 
             if (tfb<0){
 
@@ -423,21 +651,11 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
             edtChieuDayBCD.setError("Hãy nhập giá trị");
         }
 
-        //Chiều dày sườn dầm
-        try {
-            double tw = Double.parseDouble(edtChieuDaySuonDam.getText().toString());
 
-            if (tw<0){
-
-                edtChieuDaySuonDam.setError("Lỗi: Nhập số lớn hơn 0");
-            }
-        } catch (Exception e){
-            edtChieuDaySuonDam.setError("Hãy nhập giá trị");
-        }
 
         //Chiều cao sườn dầm
         try {
-            double Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
+             Dw = Double.parseDouble(edtChieuCaoSuon.getText().toString());
 
             if (Dw<0){
 
@@ -447,9 +665,74 @@ public class DuLieuDauVao_ThietKe_Fragment extends Fragment {
             edtChieuCaoSuon.setError("Hãy nhập giá trị");
         }
 
+        //Số lượng hệ liên kết ngang theo phương dọc cầu trong nhịp
+        try {
+            a = Double.parseDouble(edta.getText().toString());
+
+            if (a<0){
+
+                edta.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edta.setError("Hãy nhập giá trị");
+        }
+
+        // Tổng số hệ liên kết ngang trong 1 nhịp
+        try {
+            nlkn = Double.parseDouble(edtnlkn.getText().toString());
+
+            if (nlkn<0){
+
+                edtnlkn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtnlkn.setError("Hãy nhập giá trị");
+        }
+
+        // Chiều cao hệ liên kết ngang
+        try {
+            hlkn = Double.parseDouble(edthlkn.getText().toString());
+
+            if (hlkn<0){
+
+                edthlkn.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edthlkn.setError("Hãy nhập giá trị");
+        }
         // Diện tích dầm thép // Adt
         Adt= Bft*tft+Bfb*tfb+Dw*tw;
 
-        txtDienTichDamThep.setText("Kết quả="+Adt);
+        txtDienTichDamThep.setText(""+Adt);
     }
+    public void tinhToanEBeTong(){
+        //Cường độ chịu nén của bê tông
+        try {
+            fc = Double.parseDouble(edtCuongDoChiuNenCuaBeTong.getText().toString());
+
+            if (fc<0){
+
+                edtCuongDoChiuNenCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtCuongDoChiuNenCuaBeTong.setError("Hãy nhập giá trị");
+        }
+
+
+        //Tỉ trọng của bê tông
+        try {
+            yc = Double.parseDouble(edtTiTrongCuaBeTong.getText().toString());
+
+            if ( yc<0){
+
+                edtTiTrongCuaBeTong.setError("Lỗi: Nhập số lớn hơn 0");
+            }
+        } catch (Exception e){
+            edtTiTrongCuaBeTong.setError("Hãy nhập giá trị");
+        }
+        Ec= (0.043*Math.pow((yc*100),1.5)*(Math.sqrt(fc)));
+       txtModuynDanHoiCuaBeTong.setText(""+Ec);
+
+    }
+
 }
