@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
         duLieuDauVao_ThietKe_Fragment = new DuLieuDauVao_ThietKe_Fragment();
         gioiThieuFragment = new GioiThieuFragment();
 
+
         //  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         //fab.setOnClickListener(new View.OnClickListener() {
         //  @Override

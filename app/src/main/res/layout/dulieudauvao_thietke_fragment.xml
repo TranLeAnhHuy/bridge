@@ -53,22 +53,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="Loại cầu"
-                android:textSize="16dp"
-                android:minWidth="100dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 />
 
-            <Spinner
-                android:id="@+id/spinner"
+            <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minWidth="1000dp"
-                android:paddingLeft="10dp"
+                android:textSize="20dp"
+                android:paddingLeft="20dp"
                 android:paddingRight="10dp"
+                android:text="Dầm liên hợp"
+                android:textAllCaps="true"
                 android:textColor="#fb04069c"
 
-                ></Spinner>
+                ></TextView>
         </LinearLayout>
         // phần số liệu chung
 
@@ -979,7 +980,7 @@
                 android:layout_marginLeft="53dp"
                 android:minWidth="60dp"
                 android:id="@+id/edtChieuDaiPhanHang"
-                android:hint="500"
+                android:hint="850"
                 android:inputType="numberDecimal"
                 android:textColor="#fb04069c"
                 android:textSize="16dp" />

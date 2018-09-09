@@ -14,7 +14,7 @@
             android:icon="@drawable/ic_menu_manage"/>
     </group>
 
-    <item android:title="Bài toán thiết kế"
+    <item android:title="BAI TOAN KHÔNG LIÊN HỢP"
           android:icon="@mipmap/images">
         <menu>
             <item
